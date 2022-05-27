@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //この中でriverpodを使いますという宣言
     return ProviderScope(
       overrides: [
         // Providerが使用するインスタンスを指定する
