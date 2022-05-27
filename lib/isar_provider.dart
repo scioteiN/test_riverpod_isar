@@ -14,13 +14,13 @@ class PostStateNotifier extends StateNotifier<PostModel> {
   PostStateNotifier(this.isar)
       : super(PostModel(
           isar: isar,
-          titleList: [],
-          dateList: [],
+          titleList: isar.posts.where().titleProperty().findAllSync(),
+          dateList: isar.posts.where().dateProperty().findAllSync(),
         ));
   final Isar isar;
-
+  
   //データベースからの状態の読み込み
-  void _resetPostState() async {
+  Future<void> _resetPostState() async {
     List<String> titleList = await isar.posts.where().titleProperty().findAll();
     List<DateTime> dateList = await isar.posts.where().dateProperty().findAll();
     state = state.copyWith(
