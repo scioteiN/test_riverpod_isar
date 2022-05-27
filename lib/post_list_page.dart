@@ -10,12 +10,11 @@ class PostListPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // postStateNotifirerProviderの状態を使ってカードを作成するのでここで呼び出しておく
     final postState = ref.watch(postStateNotifierProvider);
-    
     return Scaffold(
       body: ListView.builder(
-        itemCount: postState.titleList.length,//titleリストの長さだけカードを作成する
+        itemCount: postState.titleList.length, //titleリストの長さだけカードを作成する
         itemBuilder: (context, index) {
-          final title = postState.titleList[index];//カードのタイトルはpostListの各タイトルを使用
+          final title = postState.titleList[index]; //カードのタイトルはpostListの各タイトルを使用
           return Card(
             child: ListTile(
               title: Text(title),
